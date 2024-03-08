@@ -1,2 +1,11 @@
 # JDAC
-Iterative Learning for Joint Image Denoising and Motion Artifact Correction of 3D Brain MRI
+# Iterative Learning for Joint Image Denoising and Motion Artifact Correction of 3D Brain MRI ([JDAC](https://doi.org/))
+
+**Authors**: Lintao Zhang, Mengqi Wu, Lihong Wang, David C. Steffens, Guy G. Potter, Mingxia Liu<sup>*</sup>
+
+**Abstract**:
+
+Image noise and motion artifacts greatly affect the quality of brain magnetic resonance imaging (MRI) and negatively influence downstream medical image analysis. Previous studies often focus on 2D methods that process each volumetric MR image slice-by-slice, thus losing important 3D anatomical information. Additionally, these studies generally treat image denoising and artifact correction as two standalone tasks, without considering their potential relationship, especially on low-quality images where severe noise and motion artifacts occur simultaneously. To address these issues, we propose a Joint image Denoising and motion Artifact Correction (JDAC) framework via iterative learning to handle noisy MRIs with motion artifacts, consisting of an \emph{adaptive denoising model} and an anti-artifact model. In the adaptive denoising model, we first design a novel \emph{noise level estimation strategy}, and then adaptively reduce the noise through a U-Net backbone with feature normalization conditioning on the estimated noise variance. The anti-artifact model employs another U-Net for eliminating motion artifacts, incorporating a novel gradient-based loss function designed to maintain the integrity of brain anatomy during the motion correction process. These two models are iteratively employed for joint image denoising and artifact correction through an iterative learning framework. An early stopping strategy depending on noise level estimation is applied to accelerate the iteration process. The denoising model is trained with 9,544 T1-weighted MRIs with manually added Gaussian noise as supervision. The anti-artifact model is trained on 552 T1-weighted MRIs with motion artifacts and paired motion-free images. We validate the proposed method on a public dataset and a clinical study that involves MRIs distorted by motion and noise. Experimental results suggest the effectiveness of JDAC in both tasks of denoising and motion artifact correction, compared with several state-of-the-art methods.
+
+**MONAI version**:
+pip install monai-weekly==1.3.dev2338
